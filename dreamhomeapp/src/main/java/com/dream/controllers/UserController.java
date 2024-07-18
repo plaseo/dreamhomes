@@ -3,7 +3,6 @@ package com.dream.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,22 +13,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.dream.models.User;
 import com.dream.services.UserService;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 //the class is going to handle web requests and return data directly as JSON or XML
 //  rather than rendering a view
 @RestController
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:3000")
 public class UserController {
     //ResponseEntity<Object> represents the entire http response, and it includes: status code, headers, body
-
     //status code: indicates the results of the http request, .e.g 200 OK, 201 CREATED, 400 BAD REQUEST, 404 NOT FOUND, 500 INTERNAL SERVER ERROR etc
-
     //headers: allow you to add metadata to the response, e.g. content type: JSON or xml, authorization
-
     //body: the actual data being returned in the response. This can be any type of object
-
     //@RequestBody is used to bind the body of an http request to a java object, and vice versa.
 
     @Autowired

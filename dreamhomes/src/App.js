@@ -7,6 +7,8 @@ import SignUp from './pages/SignUp';
 import { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
+import PropertyList from './pages/PropertyList';
+import PageWrapper from './reusables/PageWrapper';
 
 function App() {
   const [user, setUser] = useState({id:undefined, firstName:"", lastName:"", email:"", password:""});
@@ -34,11 +36,14 @@ function App() {
   //it is local to the component.
 
   return (
+  <PageWrapper>
   <Routes>
     <Route path="/" element = {<Home user={user} setUser={setUser}/>}/>
     <Route path="/signup" element = {<SignUp user={user} setUser={setUser}/>}/>
     <Route path="/signin" element = {<SignIn user={user} setUser={setUser}/>}/>
+    <Route path="/properties" element = {<PropertyList user={user} setUser={setUser}/>}/>
   </Routes>
+  </PageWrapper>
   );
 }
 
