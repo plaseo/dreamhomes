@@ -1,8 +1,13 @@
 import React from 'react'
+import '../App.js'
+
 
 function Home() {
     return (
-    <div>Home</div>
+    <div>
+      <h1>Welcome Home</h1>
+    </div>
+    
   )
 }
 
