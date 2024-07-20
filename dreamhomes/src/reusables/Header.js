@@ -1,4 +1,5 @@
 import React from 'react'
+import logo from '../logotrans.png'
 
 function Header() {
 
@@ -35,7 +36,9 @@ function Header() {
     </div>
   </div>
   <div className="navbar-center">
-    <a className="btn btn-ghost text-xl">Bit of Realty</a>
+    {/* <a className="btn btn-ghost text-xl">Bits of Realty</a> */}
+    
+    <a href="/"><img src={logo}></img></a>
   </div>
   <div className="navbar-end">
     <button className="btn btn-ghost btn-circle">

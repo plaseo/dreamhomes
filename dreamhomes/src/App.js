@@ -1,6 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
-import { Route, Routes } from 'react-router-dom';
+import logo from './logo.svg'
+import './App.css'
+import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
@@ -9,6 +9,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import PropertyList from './pages/PropertyList';
 import PageWrapper from './reusables/PageWrapper';
+import PropertyDetails from './pages/PropertyDetails';
 
 function App() {
   const [user, setUser] = useState({id:undefined, firstName:"", lastName:"", email:"", password:""});
@@ -42,6 +43,7 @@ function App() {
     <Route path="/signup" element = {<SignUp user={user} setUser={setUser}/>}/>
     <Route path="/signin" element = {<SignIn user={user} setUser={setUser}/>}/>
     <Route path="/properties" element = {<PropertyList user={user} setUser={setUser}/>}/>
+    <Route path="/property/:propertyId" element = {<PropertyDetails user={user} setUser={setUser}/>}/>
   </Routes>
   </PageWrapper>
   );

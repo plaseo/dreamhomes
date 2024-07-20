@@ -16,5 +16,10 @@ public class PropertyService {
         List<Property> properties = propertyRepository.findBySoldFalse();
         return properties;
     }
-    
+
+    public Property findById (Long id){
+        Property property = propertyRepository.findById(id).orElse(null);
+        return property;
+    }
+
 }

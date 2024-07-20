@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +25,6 @@ public class PropertyControler {
         produces = MediaType.APPLICATION_JSON_VALUE,
         method=RequestMethod.GET
     )
-    
     public ResponseEntity<Object> findUnsoldProperties(){
         try{
             List<Property> properties = propertyService.findUnsoldProperties();
@@ -36,7 +36,26 @@ public class PropertyControler {
             System.out.println(e.getMessage());
             return new ResponseEntity<Object>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @RequestMapping(
+        value = "/findpropertybyid/{id}",
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        method = RequestMethod.GET
+    )
+    public ResponseEntity<Object> findPropertyById(@PathVariable Long id){
+        try{
+            Property foundProperty = propertyService.findById(id);
+            return new ResponseEntity<Object>(foundProperty, HttpStatus.OK);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return new ResponseEntity<Object>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }catch(Error e){
+            System.out.println(e.getMessage());
+            return new ResponseEntity<Object>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
 
     }
+
     
 }
