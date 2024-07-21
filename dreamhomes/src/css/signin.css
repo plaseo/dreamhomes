@@ -1,0 +1,16 @@
+.signinbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+.signinbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signinbox h1 {
+    font-size: x-large;
+}
